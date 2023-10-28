@@ -24,18 +24,22 @@ public class UserServiceIMP implements UserService{
             if (isPwdRight) {
                 Optional<User> user = userRepository.findOneByEmailAndPassword(loginDTO.getEmail(), password);
                 if (user.isPresent()) {
+                    System.out.println("yes");
                     return new LoginResponse("login sucess", true);
                 } else {
+                    System.out.println("no");
                     return new LoginResponse("login failed", false);
                 }
             }
             else {
+                System.out.println("no password");
                 return new LoginResponse("password not match", false);
             }
 
 
         }
         else {
+            System.out.println("no email");
             return new LoginResponse("email not exist", false);
         }}}
 

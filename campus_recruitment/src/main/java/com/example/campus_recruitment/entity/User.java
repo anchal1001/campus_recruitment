@@ -21,6 +21,9 @@ import jakarta.persistence.*;
         private String email;
         @Column(name="password")
         private String password;
+        @ManyToOne(cascade = CascadeType.ALL)
+        @JoinColumn(name = "role_id")
+        private Role role;
 
         public User() {
         }
