@@ -18,6 +18,8 @@ body {
       0px 30px 60px 1px rgba(0,0,0,0.5);
     border-radius: 8px;
     padding: 50px;
+
+    align-items: center;
   }
   .login .head {
     display: flex;

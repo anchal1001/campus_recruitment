@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 @Entity
@@ -57,4 +58,6 @@ public class Role {
                 ", role='" + role + '\'' +
                 '}';
     }
+
+
 }

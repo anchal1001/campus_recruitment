@@ -2,13 +2,14 @@ package com.example.campus_recruitment.controller;
 
 import com.example.campus_recruitment.Dto.LoginDTO;
 import com.example.campus_recruitment.Service.UserService;
+import com.example.campus_recruitment.exception.ResourceNotFoundException;
 import com.example.campus_recruitment.response.LoginResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@CrossOrigin(origins = "http://localhost:42761/")
 @RequestMapping("api/user")
 public class UserController {
     @Autowired
@@ -19,9 +20,15 @@ public class UserController {
     @PostMapping("/login")
     public ResponseEntity<?> loginUser(@RequestBody LoginDTO loginDTO) {
         LoginResponse loginResponse = userService.loginUser(loginDTO);
-        return ResponseEntity.ok(loginResponse);
+        System.out.print(loginResponse);
+//        throw new ResourceNotFoundException("email not exist");
+        if(loginResponse.getStatus()==true){
 
 
+        return ResponseEntity.ok(loginResponse);}
+        else {
+             throw new ResourceNotFoundException("invalid credentials");
+        }
     }
 
 }

@@ -20,33 +20,54 @@ import org.springframework.security.web.SecurityFilterChain;
 import javax.sql.DataSource;
 import java.security.cert.Extension;
 
-@Configuration
+//@Configuration
+//public class AppConfig {
+//    @Bean
+//    public UserDetailsManager userDetailsManager(DataSource dataSource){
+//        return new JdbcUserDetailsManager(dataSource);
+//    }
+////    @Bean
+////    public SecurityFilterChain filterChain(HttpSecurity http ) throws Exception {
+////        http.authorizeHttpRequests(configurer ->
+////                configurer
+////                        .requestMatchers(HttpMethod.POST, "/api/user/login").hasRole("Admin"));
+////
+////                http.httpBasic(Customizer.withDefaults());
+////                http.csrf(csrf->csrf.disable());
+////
+////return http.build();
+////
+////    }
+//public SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
+//    http
+//            .authorizeRequests(configurer ->
+//                    configurer
+//                            .requestMatchers(HttpMethod.POST, "api/user/login").permitAll());
+//
+//    http.httpBasic(Customizer.withDefaults());
+//    http.csrf(csrf->csrf.disable());
+//
+//    return http.build();
+//}
+
+    @Configuration
 public class AppConfig {
     @Bean
     public UserDetailsManager userDetailsManager(DataSource dataSource){
         return new JdbcUserDetailsManager(dataSource);
     }
-//    @Bean
-//    public SecurityFilterChain filterChain(HttpSecurity http ) throws Exception {
-//        http.authorizeHttpRequests(configurer ->
-//                configurer
-//                        .requestMatchers(HttpMethod.POST, "/api/user/login").hasRole("Admin"));
-//
-//                http.httpBasic(Customizer.withDefaults());
-//                http.csrf(csrf->csrf.disable());
-//
-//return http.build();
-//
-//    }
-public SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
-    http
-            .authorizeRequests(configurer ->
-                    configurer
-                            .requestMatchers(HttpMethod.POST, "api/user/login").permitAll());
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http ) throws Exception {
+        http.authorizeHttpRequests(configurer ->
+                configurer
+                        .requestMatchers(HttpMethod.POST, "/api/user/login").permitAll());
 
-    http.httpBasic(Customizer.withDefaults());
-    http.csrf(csrf->csrf.disable());
+                http.httpBasic(Customizer.withDefaults());
+                http.csrf(csrf->csrf.disable());
+      http.cors(Customizer.withDefaults());
 
-    return http.build();
+return http.build();
+
+    }
 }
-}
+
