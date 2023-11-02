@@ -34,6 +34,8 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 import { Router, Routes } from '@angular/router';
 import { User } from '../user';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-login',
@@ -45,6 +47,7 @@ export class LoginComponent {
   loginApiError: string;
   user: User = new User();
   login : FormGroup;
+  // toastr: any;
 
 
   // password: string = "";
@@ -67,6 +70,7 @@ export class LoginComponent {
       .subscribe({
         next: (data) => {
           console.log('data', data);
+        
           this.router.navigate(['/user']);
         },
         complete: () => {
@@ -74,8 +78,9 @@ export class LoginComponent {
         },
         error: (err) => {
           console.log('error', err);
-          this.loginApiError = err.error.message;
+          alert(this.loginApiError = err.error.message);
           console.log(this.loginApiError);
+          // alert("Login failed");
         },
       });
   }

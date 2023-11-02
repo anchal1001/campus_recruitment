@@ -2,8 +2,6 @@ package com.example.campus_recruitment.entity;
 
 import jakarta.persistence.*;
 
-import java.util.Iterator;
-
 
 @Entity
     @Table(name="user")
@@ -16,6 +14,17 @@ import java.util.Iterator;
 
     private int user_id;
 
+    public User() {
+
+    }
+
+    public User(String name, String email, String password, Role role) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+    }
+
     @Column(name = "user_name")
     private String name;
 
@@ -23,19 +32,11 @@ import java.util.Iterator;
     private String email;
     @Column(name = "password")
     private String password;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "role_id")
     private Role role;
 
-    public User() {
-    }
 
-    public User(int user_id, String name, String email, String password) {
-        this.user_id = user_id;
-        this.name = name;
-        this.email = email;
-        this.password = password;
-    }
 
     public int getUser_id() {
         return user_id;

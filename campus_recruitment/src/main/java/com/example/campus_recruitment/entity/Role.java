@@ -20,8 +20,8 @@ public class Role {
 
     @Column(name="role")
     private String role;
-    @OneToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE },mappedBy = "role" )
-//    @JsonIgnore
+    @OneToMany(cascade = { CascadeType.ALL },mappedBy = "role" )
+    @JsonIgnore
     private List<User> user = new ArrayList<>();
 //    @OneToMany(mappedBy = "role", cascade = CascadeType.ALL)
 //    private List<User> user = new ArrayList<>();

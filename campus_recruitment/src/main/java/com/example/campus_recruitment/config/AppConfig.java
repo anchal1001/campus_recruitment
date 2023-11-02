@@ -60,13 +60,20 @@ public class AppConfig {
     public SecurityFilterChain filterChain(HttpSecurity http ) throws Exception {
         http.authorizeHttpRequests(configurer ->
                 configurer
-                        .requestMatchers(HttpMethod.POST, "/api/user/login").permitAll());
+//
+                        .requestMatchers(HttpMethod.POST, "/api/user/login").permitAll()
+                       .requestMatchers(HttpMethod.POST, "/api/user/registration").permitAll()
+                        .anyRequest().authenticated());
+
 
                 http.httpBasic(Customizer.withDefaults());
                 http.csrf(csrf->csrf.disable());
       http.cors(Customizer.withDefaults());
 
-return http.build();
+
+
+
+        return http.build();
 
     }
 }
