@@ -1,45 +1,36 @@
 <div class="registration-form-container">
-    <h2>Registration Form</h2>
-  
-    <form [formGroup]="registrationForm">
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" id="name" formControlName="name" />
-      </div>
-  
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" formControlName="email" />
-      </div>
-  
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" formControlName="password" />
-      </div>
-  
-      <div class="form-group">
-        <label for="role">Role</label>
-        <select id="role" formControlName="role">
-          <option value="user">Solution Analyst</option>
-          <option value="admin">Admin</option>
-          <option value="user">Group director Technology</option>
-          <option value="user">Cloud Engineer</option>
-          <option value="user">Graphics Designer</option>
-          <option value="user">Group Lead -Buisness Development</option>
-          <option value="user">Quality Analyst</option>
-          <option value="user">VP</option>
-          <option value="user">UI/UX Designer</option>
-          <option value="user">Nurturance officer</option>
-        </select>
-      </div>
-  
-      <div class="form-group">
-        <label for="avatar">Avatar</label>
-        <!-- <input type="file" id="avatar" (change)="onFileSelected($event)" /> -->
-        <!-- <img [src]="avatarUrl" alt="Avatar Preview" *ngIf="avatarUrl" /> -->
-      </div>
-  
-      <button type="submit" [disabled]="registrationForm.invalid">Register</button>
-    </form>
-  </div>
-  
+  <h2>Registration Form</h2>
+
+  <form  (ngSubmit)="onSubmit()" #registrationForm ="ngForm">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" [(ngModel)]="user.name" />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" [(ngModel)]="user.email"/>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" [(ngModel)]="user.password"/>
+    </div>
+
+    <div class="form-group" *ngIf = "areRolesAdded">
+      <label > Role</label>
+      <select class="form-select " #Role="ngModel" name="role" [(ngModel)]="user.role.role_id">
+        <option value="none" selected disabled >Select Role</option>
+        <option *ngFor="let role of Roles" [value]="role.role_id">{{ role.role }} </option>
+    </select>
+    </div>
+
+    <div class="form-group">
+      <!-- <label for="avatar">Avatar</label>
+      <input type="file" id="avatar" formControlName="avatar" /> -->
+      <!-- You can add an image preview if needed -->
+    </div>
+
+    <button type="submit" [disabled]="registrationForm.form.invalid">Register</button>
+  </form>
+</div>

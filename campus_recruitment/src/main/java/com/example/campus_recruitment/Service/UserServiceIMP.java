@@ -23,7 +23,6 @@ public class UserServiceIMP implements UserService{
     @Override
     public String addUser(UserDTO userDTO) {
         User user = new User(
-
                 userDTO.getName(),
                 userDTO.getEmail(),
                 this.passwordEncoder.encode(userDTO.getPassword()),

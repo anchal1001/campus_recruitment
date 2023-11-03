@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLOutput;
+
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("api/user")
@@ -42,10 +44,10 @@ public class UserController {
 
     }
     @PostMapping("/registration")
-    public String  addUser(@RequestBody UserDTO userDTO){
+    public ResponseEntity<?>  addUser(@RequestBody UserDTO userDTO){
+        System.out.println("registration callleeddd");
 
-        String  id = userService.addUser(userDTO);
-        return  id;
+        return  ResponseEntity.ok(userService.addUser(userDTO));
 
     }
 }
