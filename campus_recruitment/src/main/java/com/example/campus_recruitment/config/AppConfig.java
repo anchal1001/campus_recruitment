@@ -63,7 +63,7 @@ public class AppConfig {
 //
                         .requestMatchers(HttpMethod.POST, "/api/user/login").permitAll()
                        .requestMatchers(HttpMethod.POST, "/api/user/registration").permitAll()
-                        .requestMatchers(HttpMethod.GET,"/api/roles").permitAll()
+                        .requestMatchers(HttpMethod.GET,"/api/roles").hasRole("admin")
                         .anyRequest().authenticated());
 
 

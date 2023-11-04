@@ -7,6 +7,7 @@ import com.example.campus_recruitment.exception.ResourceNotFoundException;
 import com.example.campus_recruitment.response.LoginResponse;
 import com.example.campus_recruitment.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -41,20 +42,27 @@ public class UserServiceIMP implements UserService{
             System.out.println(user1);
             if (user1 != null) {
                 String password = loginDTO.getPassword();
-//                String encodedPassword = user1.getPassword();
-                boolean isPwdRight = user1.getPassword().matches(password);
+                System.out.println(user1);
+                String encodedPassword = user1.getPassword();
+//                boolean isPwdRight = user1.getPassword().matches(password);
+                System.out.println(password);
+                System.out.println(encodedPassword);
+                boolean isPwdRight =    BCrypt.checkpw(password, encodedPassword);
+                System.out.println(isPwdRight);
                 if (isPwdRight) {
-                    Optional<User> user = userRepository.findOneByEmailAndPassword(loginDTO.getEmail(), password);
-                    if (user.isPresent()) {
-                        System.out.println("yes");
+//                    Optional<User> user = userRepository.findOneByEmailAndPassword(loginDTO.getEmail(), password);
+//                    if (user.isPresent()) {
+//                        System.out.println("yes");
+//                        return new LoginResponse("login success", true);
+//                    } else {
+//                        return  new LoginResponse("Login failed" ,false);
+//                    }
+                    System.out.println("yes");
                         return new LoginResponse("login success", true);
-                    } else {
-                        return  new LoginResponse("Login failed" ,false);
-                    }
                 }
                 else {
                     System.out.println("no password");
-                    throw new ResourceNotFoundException("password not match");
+                    throw new ResourceNotFoundException("credentials not matched");
                 }
             }
             else {
@@ -62,7 +70,7 @@ public class UserServiceIMP implements UserService{
                 throw new ResourceNotFoundException("email not exist");
             }
         }catch (ResourceNotFoundException e) {
-            System.out.println("Login failed: " + e.getMessage());
+            System.out.println("Login faileddd: " + e.getMessage());
             return new LoginResponse(e.getMessage(), false);
         }
     }
