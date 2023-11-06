@@ -20,6 +20,9 @@ export class UserComponent {
 redirectToRegister() {
   this.router.navigate(['/register']);
 }
+redirectToCategory() {
+  this.router.navigate(['/category']);
+}
 }
 
 

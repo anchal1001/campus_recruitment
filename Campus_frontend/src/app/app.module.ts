@@ -11,6 +11,8 @@ import { UserComponent } from './user/user.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule }   from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
+import { CategoryComponent } from './category/category.component';
+import { CollegeComponent } from './college/college.component';
 
 
 
@@ -20,6 +22,8 @@ import { RegisterComponent } from './register/register.component';
     LoginComponent,
     UserComponent,
     RegisterComponent,
+    CategoryComponent,
+    CollegeComponent,
 
    
   ],

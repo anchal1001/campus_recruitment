@@ -14,16 +14,7 @@ import jakarta.persistence.*;
 
     private int user_id;
 
-    public User() {
 
-    }
-
-    public User(String name, String email, String password, Role role) {
-        this.name = name;
-        this.email = email;
-        this.password = password;
-        this.role = role;
-    }
 
     @Column(name = "user_name")
     private String name;
@@ -37,7 +28,16 @@ import jakarta.persistence.*;
     private Role role;
 
 
+    public User() {
 
+    }
+
+    public User(String name, String email, String password, Role role) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+    }
     public int getUser_id() {
         return user_id;
     }
