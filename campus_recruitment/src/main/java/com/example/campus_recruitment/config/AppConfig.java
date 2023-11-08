@@ -67,6 +67,9 @@ public class AppConfig {
                         .requestMatchers(HttpMethod.GET,"/api/roles").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/category/create").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/college/create").permitAll()
+                        .requestMatchers(HttpMethod.GET,"/api/category/getAll").permitAll()
+                        .requestMatchers(HttpMethod.GET,"/api/college/getAll").permitAll()
+//                        .requestMatchers(HttpMethod.GET,"/api/category/getAllCollegesBy/{categoryId}").permitAll()
 
 
 //                        .requestMatchers(HttpMethod.GET,"/api/roles").hasRole("admin")

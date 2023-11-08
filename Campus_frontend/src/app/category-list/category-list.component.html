@@ -1,0 +1,39 @@
+<div class="container">
+    <h2>Category Details</h2>
+    <form #categoryForm ="ngForm" >
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Serial No.</th>
+            <th>Category </th>
+            <th>Profile</th>
+            <th>CTC</th>
+            <th>Colleges</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let category of categories; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>
+                    <input type="text" [value]="category.categoryName" />
+                </td>
+                <td>
+                    <input type="text" [value]="category.categoryRole" />
+                </td>
+                <td>
+                    <input type="number" [value]="category.ctc" />
+                </td>
+                <td>
+                    <a href="/college-list">view colleges</a>
+                </td>
+            </tr>
+  
+        </tbody>
+      </table>
+
+      <button class="btn btn-primary" (click)="redirectToCategory()">Add Category</button>
+      <button (click)="redirectToUserPage()">HOME</button>
+   
+    </form>
+  </div>
+  

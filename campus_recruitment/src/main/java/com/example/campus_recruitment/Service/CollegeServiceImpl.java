@@ -8,26 +8,34 @@ import com.example.campus_recruitment.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CollegeServiceImpl implements CollegeService{
     @Autowired
     private CollegeRepository collegeRepository;
+
+    public List<College> getAllColleges() {
+        return collegeRepository.findAll();
+    }
     @Override
-    public String addCollege(CollegeDto collegeDto) {
-        College college = new College(
-                collegeDto.getCollegeName(),
-                collegeDto.getContactPerson(),
+    public College addCollege(CollegeDto collegeDto) {
+        College college = new College();
+        college.setCollegeName(collegeDto.getCollegeName());
+        college.setEmail(collegeDto.getEmail());
+                college.setContactPerson(collegeDto.getContactPerson());
+        college.setPhoneNumber(collegeDto.getPhoneNumber());
+                college.setWebsite(collegeDto.getWebsite());
+                college.setLocation(collegeDto.getLocation());
+        college.setCategory(collegeDto.getCategory());
 
-                collegeDto.getEmail(),
-                collegeDto.getPhoneNumber(),
-                collegeDto.getWebsite(),
-                collegeDto.getLocation(),
-                collegeDto.getCategory());
 
-
-        collegeRepository.save(college);
       System.out.println(collegeDto);
-        return collegeDto.getCollegeName();
+      System.out.println(college);
+//      return collegeRepository.save(college);
+      return collegeRepository.save(college);
+
+//        return collegeDto.getCollegeName();
     }
 
 

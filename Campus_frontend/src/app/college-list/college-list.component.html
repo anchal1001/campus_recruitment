@@ -1,0 +1,43 @@
+<div class="container">
+    <h2>College Details</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Serial No.</th>
+                <th>College Name</th>
+                <th>Contact Person</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Website</th>
+                <th>Location</th>
+                <th>Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let college of colleges; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>
+                    <input type="text" [value]="college.collegeName" />
+                </td>
+                <td>
+                    <input type="text" [value]="college.contactPerson" />
+                </td>
+                <td>
+                    <input type="email" [value]="college.email" />
+                </td>
+                <td>
+                    <input type="tel" [value]="college.phoneNumber" />
+                </td>
+                <td>
+                    <input type="text" [value]="college.website" />
+                </td>
+                <td>
+                    <input type="text" [value]="college.location" />
+                </td>
+                <td>
+                    <span>[value]= "{{ college.category.categoryId}}"</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

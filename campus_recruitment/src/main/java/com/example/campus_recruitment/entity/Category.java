@@ -7,13 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+//@AllArgsConstructor
 @Table(name="category")
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "category_id")
-
-
     private int categoryId;
 
 
@@ -24,9 +23,9 @@ public class Category {
 
     @Column(name = "Ctc")
     private double  ctc;
-    @OneToMany(cascade = { CascadeType.PERSIST },mappedBy = "category" )
+    @OneToMany(cascade = { CascadeType.MERGE },mappedBy = "category" )
     @JsonIgnore
-    private List<College> college = new ArrayList<>();
+    private List<College> college;
 
     public Category() {
     }
@@ -35,6 +34,29 @@ public class Category {
         this.categoryName = categoryName;
         this.categoryRole = categoryRole;
         this.ctc = ctc;
+    }
+
+    public Category(int categoryId, String categoryName, String categoryRole, double ctc) {
+        this.categoryId = categoryId;
+        this.categoryName = categoryName;
+        this.categoryRole = categoryRole;
+        this.ctc = ctc;
+    }
+
+    public int getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public List<College> getCollege() {
+        return college;
+    }
+
+    public void setCollege(List<College> college) {
+        this.college = college;
     }
 
     public String getCategoryName() {

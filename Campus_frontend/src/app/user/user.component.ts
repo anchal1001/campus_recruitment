@@ -11,6 +11,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 
 export class UserComponent {
+redirectToAllCollege() {
+  this.router.navigate(['/college-list']);
+}
+
 
 
 
@@ -20,10 +24,15 @@ export class UserComponent {
 redirectToRegister() {
   this.router.navigate(['/register']);
 }
-redirectToCategory() {
-  this.router.navigate(['/category']);
+// redirectToCategory() {
+//   this.router.navigate(['/category']);}
+
+redirectToAllCategory() {
+  this.router.navigate(['/category-list']);
 }
+
 }
+
 
 
 

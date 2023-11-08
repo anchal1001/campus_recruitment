@@ -24,13 +24,14 @@ constructor(private http: HttpClient, private router: Router,
     console.log("implement")
     this.categoryService.addCategory(this.category).subscribe({
       next: (data) => {
-        // this.router.navigate(['/user']);
+
       },
       complete: () => {
         console.log('complete');
       },
       error: (err) => {
         console.log('error', err);
+        this.router.navigate(['/category-list']);
       },
     });
     }

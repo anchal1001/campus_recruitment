@@ -8,9 +8,7 @@ public class College {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "college_id")
-
-
-    private int college_id;
+    private int collegeId;
 
 
     @Column(name = "college_name")
@@ -29,14 +27,15 @@ public class College {
     private String location;
 
 
-    @ManyToOne(fetch = FetchType.EAGER,cascade = { CascadeType.PERSIST })
+    @ManyToOne(fetch = FetchType.EAGER,cascade = { CascadeType.MERGE })
     @JoinColumn(name = "category_id")
     private Category category;
 
     public College() {
     }
 
-    public College(String collegeName, String contactPerson, String email, String phoneNumber, String website, String location, Category category) {
+    public College(int collegeId, String collegeName, String contactPerson, String email, String phoneNumber, String website, String location, Category category) {
+        this.collegeId = collegeId;
         this.collegeName = collegeName;
         this.contactPerson = contactPerson;
         this.email = email;
@@ -46,6 +45,13 @@ public class College {
         this.category = category;
     }
 
+    public int getCollegeId() {
+        return collegeId;
+    }
+
+    public void setCollegeId(int collegeId) {
+        this.collegeId = collegeId;
+    }
     public String getCollegeName() {
         return collegeName;
     }
@@ -93,12 +99,19 @@ public class College {
     public void setLocation(String location) {
         this.location = location;
     }
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category= category;
+    }
 
 
     @Override
     public String toString() {
         return "College{" +
-                "college_id=" + college_id +
+                "college_id=" + collegeId +
                 ", collegeName='" + collegeName + '\'' +
                 ", contactPerson='" + contactPerson + '\'' +
                 ", email='" + email + '\'' +

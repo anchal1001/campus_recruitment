@@ -5,6 +5,8 @@ import { UserComponent } from './user/user.component';
 import { RegisterComponent } from './register/register.component';
 import { CollegeComponent } from './college/college.component';
 import { CategoryComponent } from './category/category.component';
+import { CategoryListComponent } from './category-list/category-list.component';
+import { CollegeListComponent } from './college-list/college-list.component';
 
 
 const routes: Routes = [
@@ -13,6 +15,8 @@ const routes: Routes = [
   { path:'register', component:RegisterComponent},
   { path:'category', component:CategoryComponent},
   { path:'college', component:CollegeComponent},
+  { path:'category-list', component:CategoryListComponent},
+  { path:'college-list', component:CollegeListComponent},
 
 
 

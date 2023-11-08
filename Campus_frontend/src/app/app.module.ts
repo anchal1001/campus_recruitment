@@ -13,6 +13,9 @@ import { FormsModule }   from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { CategoryComponent } from './category/category.component';
 import { CollegeComponent } from './college/college.component';
+import { CollegeListComponent } from './college-list/college-list.component';
+import { CategoryListComponent } from './category-list/category-list.component';
+
 
 
 
@@ -24,6 +27,8 @@ import { CollegeComponent } from './college/college.component';
     RegisterComponent,
     CategoryComponent,
     CollegeComponent,
+    CollegeListComponent,
+    CategoryListComponent,
 
    
   ],

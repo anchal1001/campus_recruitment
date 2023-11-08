@@ -5,6 +5,13 @@ export class User {
   role: {
     role_id:number;
   };
+  dateOfBirth:Date;
+  bloodGroup:String;
+  gender:string;
+  phoneNumber:Number;
+  alternateNumber:Number;
+  address:string;
+  permanentAddress:string;
 }
 
 // export class Role {

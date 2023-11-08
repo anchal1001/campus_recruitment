@@ -1,1 +1,39 @@
-<p>college works!</p>
+<div class="container">
+    <h2>Add College</h2>
+    <form #collegeForm ="ngForm" (ngSubmit)="onSubmit()" >
+      <div class="form-group">
+        <label for="collegeName">College Name</label>
+        <input type="text" id="collegeName" name="collegeName"  [(ngModel)]="college.collegeName" />
+      </div>
+      <div class="form-group">
+        <label for="contactPerson">Contact Person</label> 
+        <input type="text" id="contactPerson" name="contactPerson"  [(ngModel)]="college.contactPerson"/>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email"  [(ngModel)]="college.email"/>
+      </div>
+      <div class="form-group">
+        <label for="contactNumber">Contact Number</label>
+        <input type="number" id="contactNumber" name="contactNumber" [(ngModel)]="college.phoneNumber" />
+      </div>
+      <div class="form-group">
+        <label for="website">Website</label>
+        <input type="text" id="website" name="website"  [(ngModel)]="college.website" />
+      </div>
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input type="text" id="location" name="location" [(ngModel)]="college.location"/>
+      </div>
+      <div class="form-group" >
+        <label for="category">Category</label>
+        <select id="category" name="category"  [(ngModel)]="college.category.categoryId">
+          <option *ngFor="let category of categories" [value]="category.categoryId">{{ category.categoryName }}</option>
+        </select>
+      </div>
+
+    
+      <button type="submit" class="btn btn-primary" [disabled]="collegeForm.form.invalid">Add </button>
+    </form>
+  </div>
+  

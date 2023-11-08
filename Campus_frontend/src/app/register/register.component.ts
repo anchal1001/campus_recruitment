@@ -52,13 +52,14 @@ export class RegisterComponent implements OnInit {
     console.log('submitted');
     this.userService.registerUser(this.user).subscribe({
       next: (data) => {
-        // this.router.navigate(['/user']);
+       
       },
       complete: () => {
         console.log('complete');
       },
       error: (err) => {
         console.log('error', err);
+        this.router.navigate(['/user']);
       },
     });
   }

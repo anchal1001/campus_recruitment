@@ -23,6 +23,12 @@ export class CategoryService {
 
 }
   )}
+
+
+  getAllCategory(){
+    return this.http.get(`${this.baseUrl}/getAll`)
+  }
+
 }
 
 

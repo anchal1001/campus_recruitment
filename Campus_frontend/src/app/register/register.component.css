@@ -1,69 +1,99 @@
+/* Style for the container */
 .registration-form-container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f7f7f7;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-  
-  h2 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
-  .form-group {
-    margin: 10px 0;
-    text-align: left;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #555;
-  }
-  
-  input[type="text"],
-  input[type="email"],
-  input[type="password"],
-  select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    color: #333;
-    background-color: #fff;
-  }
-  
-  select {
-    height: 34px;
-  }
-  
-  button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    background-color: #007bff;
-    color: #fff;
-    font-size: 18px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Add more styles for the avatar section if needed */
-  /* .form-group label[for="avatar"] {
-    // Your styles here
-  } */
-  
-  /* Add responsive styles as needed */
-  
+  background: #f7f7f7;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.registration-form-container h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Style for form groups */
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+}
+
+/* Style for labels */
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+/* Style for text inputs */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="tel"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus,
+.form-group input[type="tel"]:focus {
+  border-color: #007BFF;
+}
+
+/* Style for radio buttons */
+.form-group input[type="radio"] {
+  display: none;
+}
+
+.form-group input[type="radio"] + label {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+}
+
+.form-group input[type="radio"] + label:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #007BFF;
+  border-radius: 50%;
+  transition: border-color 0.3s;
+}
+
+.form-group input[type="radio"]:checked + label:before {
+  background: #007BFF;
+  border-color: #007BFF;
+}
+
+/* Style for the submit button */
+button {
+  background: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+.form-group label{
+  font-size: x-large; margin-top: 4px; margin-right: 5px;
+}

@@ -24,10 +24,20 @@ public class UserServiceIMP implements UserService{
     @Override
     public String addUser(UserDTO userDTO) {
         User user = new User(
+
+
                 userDTO.getName(),
                 userDTO.getEmail(),
                 this.passwordEncoder.encode(userDTO.getPassword()),
-               userDTO.getRole());
+                userDTO.getRole(),
+
+                userDTO.getDateOfBirth(),
+                userDTO.getBloodGroup(),
+                userDTO.getGender(),
+                userDTO.getPhoneNumber(),
+                userDTO.getAlternateNumber(),
+                userDTO.getAddress(),
+                userDTO.getPermanentAddress());
 
 
         userRepository.save(user);
@@ -44,7 +54,7 @@ public class UserServiceIMP implements UserService{
                 String password = loginDTO.getPassword();
                 System.out.println(user1);
                 String encodedPassword = user1.getPassword();
-//                boolean isPwdRight = user1.getPassword().matches(password);
+//                boolean isPwdRight = user1.getPassword().matches(password);.
                 System.out.println(password);
                 System.out.println(encodedPassword);
                 boolean isPwdRight =    BCrypt.checkpw(password, encodedPassword);
