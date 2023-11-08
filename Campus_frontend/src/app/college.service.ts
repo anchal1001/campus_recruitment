@@ -8,7 +8,7 @@ import { category } from './Category';
   providedIn: 'root'
 })
 export class CollegeService {
-  [x: string]: any;
+  // [x: string]: any;
   baseUrl = 'http://localhost:8888/api/college';
 
   constructor(private http: HttpClient) {}

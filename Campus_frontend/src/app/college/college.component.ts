@@ -57,11 +57,12 @@ onSubmit() {
     },
     complete: () => {
       console.log('complete');
+      this.router.navigate(['/user']);
     },
     error: (err) => {
       console.log('error', err);
 
-      this.router.navigate(['/user']);
+     
     },
   });
 }

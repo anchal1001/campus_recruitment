@@ -15,7 +15,7 @@ export class CollegeListComponent {
   }
 
   ngOnInit() {
-    this.collegeService['getAllColleges']().subscribe((data: any) => {
+    this.collegeService.getAllCollege().subscribe((data: any) => {
       this.colleges = data;
     });
   }
