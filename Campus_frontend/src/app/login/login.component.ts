@@ -29,6 +29,7 @@
 //   }
 // }
 import { Component } from '@angular/core';
+
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
@@ -47,6 +48,7 @@ export class LoginComponent {
   loginApiError: string;
   user: User = new User();
   login: FormGroup;
+  data: Object;
   // toastr: any;
 
   // password: string = "";
@@ -59,12 +61,28 @@ export class LoginComponent {
   ) {}
 
   onLogin() {
+
     console.log(this.user.email, this.user.password);
     this.userService.loginUser(this.user.email, this.user.password).subscribe({
       next: (data) => {
         console.log('data', data);
+        
+       var roleId=Object.entries(data)[2][1].roleId;
+       this.user.role=roleId;
+        this.user.name=Object.entries(data)[2][1].username;
+        // $scope.userName=this.user.name;
 
-        this.router.navigate(['/user']);
+        console.log('data',this.user);
+
+        if(roleId==4) {
+
+          this.router.navigate(['/user']);
+        } else {
+          //this.router.navigate(['/employee']);
+          console.log('not admin');
+        }
+       
+       
       },
       complete: () => {
         console.log('complete');

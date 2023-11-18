@@ -127,7 +127,7 @@
       </div>
 
       <div class="form-group">
-        <label for="address">Address</label>
+        <label for="address">Present Address</label>
         <input
           type="text"
           id="address"
@@ -146,7 +146,13 @@
           [(ngModel)]="user.permanentAddress"
           required
         />
+        <!-- <input type="checkbox" id="filladdress" name="filladdress" onclick="fillAddress()" /> same as present address.<br />
+      </div> -->
+   
+        <input type="checkbox" id="filladdress" name="filladdress" (change)="fillAddress()" />
+        <label for="filladdress">Same as present address</label>
       </div>
+      
 
 
     <div class="form-group">

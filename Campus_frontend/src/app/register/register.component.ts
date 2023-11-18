@@ -12,6 +12,9 @@ import { RoleService } from '../role.service';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
+
+
+
   user: User = new User();
   Roles:any = []
   areRolesAdded = false
@@ -20,6 +23,17 @@ export class RegisterComponent implements OnInit {
   ngOnInit(){
     this.getApi()
     this.user.role = {role_id: 0}
+  }
+  fillAddress() {
+  const filladdress = document.getElementById("filladdress") as HTMLInputElement;
+    const addr = (document.getElementById("address") as HTMLInputElement).value;
+
+    if (filladdress.checked) {
+      const copyaddr = addr;
+      (document.getElementById("permanentAddress") as HTMLInputElement).value = copyaddr;
+    } else {
+      (document.getElementById("permanentAddress") as HTMLInputElement).value = '';
+    }
   }
 
   getAllRoles(){
@@ -56,11 +70,47 @@ export class RegisterComponent implements OnInit {
       },
       complete: () => {
         console.log('complete');
+        this.router.navigate(['/user']);
       },
       error: (err) => {
         console.log('error', err);
-        this.router.navigate(['/user']);
+        alert(err.error)
+     
       },
     });
   }
+
+
+
+//   $(document).ready(function(){
+//     $("#filladdress").on("click", function(){
+//          if (this.checked) { 
+//                 $("#permanentAddress").val($("#address").val());
+             
+//     else {
+//         $("permanentAddress").val('');
+               
+//     }
+//     });
+// });
+//  fillAddress()
+//     {
+//         if (filladdress.checked == true)
+//         {
+//             var addr = document.getElementById("address").value;
+             
+
+           
+//             var copyaddr = addr;
+            
+            
+//             document.getElementById("permanentAddress").value = copyaddr;
+        
+//         }
+//         else if (filladdress.checked == false)
+//         {
+//             document.getElementById("permanentAddress").value = '';
+ 
+//         }
+//     }
 }

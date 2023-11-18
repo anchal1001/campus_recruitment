@@ -41,16 +41,17 @@ public class collegeController {
 
         }
 
-    @GetMapping("/getAll")
-    public ResponseEntity<Object> getAllCollege() {
-        try {
-            return ResponseEntity.ok().body(collegeService.getAllColleges());
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ResponseEntity.badRequest().body("Somethimg Went Wrong");
-
-        }
-    }}
+//    @GetMapping("/getAll")
+//    public ResponseEntity<Object> getAllCollege() {
+//        try {
+//            return ResponseEntity.ok().body(collegeService.getAllColleges());
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            return ResponseEntity.badRequest().body("Somethimg Went Wrong");
+//
+//        }
+//    }
+}
 
     
 

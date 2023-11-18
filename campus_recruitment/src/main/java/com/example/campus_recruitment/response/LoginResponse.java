@@ -7,14 +7,25 @@ public class LoginResponse {
     String message;
     Boolean status;
 
+    Data data;
+
     public LoginResponse() {
     }
 
-    public LoginResponse(String message, Boolean status) {
+
+
+    public LoginResponse(String message, Boolean status,Data data) {
         this.message = message;
         this.status = status;
+        this.data = data;
+    }
+    public Data getData() {
+        return data;
     }
 
+    public void setData(Data data) {
+        this.data = data;
+    }
     public String getMessage() {
         return message;
     }
