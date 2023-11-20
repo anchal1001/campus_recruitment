@@ -41,12 +41,14 @@ catch (Exception e){
             return ResponseEntity.badRequest().body("Somethimg Went Wrong");
 
         }
-    }}
-//    @GetMapping("getAllCollegesBy/{categoryId}")
-//    public List<College> getAllCollegesByCategoryId(@PathVariable int categoryId)
-//    {
-//        return categoryService.getAllCollegesByCategoryId(categoryId);}
-//}
+    }
+    @GetMapping("getAllCollegesBy/{categoryId}")
+    public List<College> getAllCollegesByCategoryId(@PathVariable int categoryId)
+    {
+        return categoryService.getAllCollegesByCategoryId(categoryId);
+
+    }
+}
 
 
 

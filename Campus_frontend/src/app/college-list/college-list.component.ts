@@ -9,6 +9,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./college-list.component.css']
 })
 export class CollegeListComponent {
+  redirectToUserPage() {
+    this.router.navigate(['/user']);
+  }
+  
   colleges: any[] = [];
   constructor(private formBuilder: FormBuilder, private router: Router,private collegeService: CollegeService) {
   

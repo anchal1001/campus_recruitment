@@ -24,7 +24,7 @@
                     <input type="number" [value]="category.ctc" />
                 </td>
                 <td>
-                    <a href="/college-list">view colleges</a>
+                 <a class="underline-link"(click)="onCollegeById(category.categoryId)">view colleges</a> 
                 </td>
             </tr>
   
@@ -33,7 +33,52 @@
 
       <button class="btn btn-primary" (click)="redirectToCategory()">Add Category</button>
       <button (click)="redirectToUserPage()">HOME</button>
+      <button (click)="redirectToAllCollege()">View college list</button>
    
     </form>
   </div>
-  
+
+
+
+
+
+  <div class="container">
+    <h2>College Details</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Serial No.</th>
+                <th>College Name</th>
+                <th>Contact Person</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Website</th>
+                <th>Location</th>
+              
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let college of resclg; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>
+                    <input type="text" [value]="college.collegeName" />
+                </td>
+                <td>
+                    <input type="text" [value]="college.contactPerson" />
+                </td>
+                <td>
+                    <input type="email" [value]="college.email" />
+                </td>
+                <td>
+                    <input type="tel" [value]="college.phoneNumber" />
+                </td>
+                <td>
+                    <input type="text" [value]="college.website" />
+                </td>
+                <td>
+                    <input type="text" [value]="college.location" />
+                </td>
+
+        </tbody>
+      </table>
+      </div>

@@ -7,6 +7,8 @@ import { User } from './user';
   providedIn: 'root',
 })
 export class UserService {
+  user: User = new User();
+
   baseUrl = 'http://localhost:8888/api/user';
 
   constructor(private http: HttpClient) {}
@@ -17,6 +19,13 @@ export class UserService {
       password: password,
     });
   }
+
+
+// setUser(data: any) {
+//   this.user.role=data.roleId;
+//   this.user.name=data.username;
+//   };
+
 
   registerUser(user: User): Observable<object> {
     console.log(user);

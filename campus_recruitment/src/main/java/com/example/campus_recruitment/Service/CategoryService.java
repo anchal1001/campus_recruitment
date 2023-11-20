@@ -11,6 +11,6 @@ import java.util.List;
 public interface CategoryService {
     String addCategory(CategoryDto CategoryDto);
     List<Category> getAllcategory();
-//    List<College> getAllCollegesByCategoryId(@PathVariable int id);
+    List<College> getAllCollegesByCategoryId( int collegeId);
 
 }

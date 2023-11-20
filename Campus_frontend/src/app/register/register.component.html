@@ -1,7 +1,30 @@
+
+<body>
+  <button (click)="redirectToUserPage()">HOME</button>
 <div class="registration-form-container">
+  <img src="http://infiniteiotdevices.com/images/png1.png" class="user">
   <h2>Registration Form</h2>
+  
+	
 
   <form (ngSubmit)="onSubmit()" #registrationForm="ngForm">
+    <div class="flex-row">
+      <div class="form-group" >
+        <label for="name">Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          [(ngModel)]="user.name"
+          required
+        />
+      </div>
+  
+      <div class="form-group" style="margin-left: 20px;">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" [(ngModel)]="user.email" />
+      </div>
+    </div>
     <div class="form-group" >
       <label for="name">Name</label>
       <input
@@ -67,38 +90,40 @@
 
       <div class="form-group">
         <label>Gender</label>
-        <div class="form-check">
-          <input
-            type="radio"
-            id="male"
-            name="gender"
-            [(ngModel)]="user.gender"
-            value="Male"
-            class="form-check-input"
-          />
-          <label for="male" class="form-check-label">Male</label>
-        </div>
-        <div class="form-check">
-          <input
-            type="radio"
-            id="female"
-            name="gender"
-            [(ngModel)]="user.gender"
-            value="Female"
-            class="form-check-input"
-          />
-          <label for="female" class="form-check-label">Female</label>
-        </div>
-        <div class="form-check">
-          <input
-            type="radio"
-            id="other"
-            name="gender"
-            [(ngModel)]="user.gender"
-            value="Other"
-            class="form-check-input"
-          />
-          <label for="other" class="form-check-label">Other</label>
+        <div class="checkbox">
+          <div class="form-check">
+            <input
+              type="radio"
+              id="male"
+              name="gender"
+              [(ngModel)]="user.gender"
+              value="Male"
+              class="form-check-input"
+            />
+            <label for="male" class="form-check-label">Male</label>
+          </div>
+          <div class="form-check">
+            <input
+              type="radio"
+              id="female"
+              name="gender"
+              [(ngModel)]="user.gender"
+              value="Female"
+              class="form-check-input"
+            />
+            <label for="female" class="form-check-label">Female</label>
+          </div>
+          <div class="form-check">
+            <input
+              type="radio"
+              id="other"
+              name="gender"
+              [(ngModel)]="user.gender"
+              value="Other"
+              class="form-check-input"
+            />
+            <label for="other" class="form-check-label">Other</label>
+          </div>
         </div>
       </div>
 
@@ -166,3 +191,4 @@
     </button>
   </form>
 </div>
+</body>

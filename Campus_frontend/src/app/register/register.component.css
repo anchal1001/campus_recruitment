@@ -1,4 +1,4 @@
-/* Style for the container */
+/* Style for the container
 .registration-form-container {
   background: #f7f7f7;
   padding: 20px;
@@ -15,20 +15,20 @@
 }
 
 /* Style for form groups */
-.form-group {
+/* .form-group {
   margin-bottom: 20px;
   display: flex;
-}
+} */
 
 /* Style for labels */
-.form-group label {
+/* .form-group label {
   display: block;
   margin-bottom: 5px;
   color: #333;
-}
+} */
 
 /* Style for text inputs */
-.form-group input[type="text"],
+/* .form-group input[type="text"],
 .form-group input[type="email"],
 .form-group input[type="password"],
 .form-group input[type="tel"] {
@@ -37,17 +37,17 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   transition: border-color 0.3s;
-}
+} */
 
-.form-group input[type="text"]:focus,
+/* .form-group input[type="text"]:focus,
 .form-group input[type="email"]:focus,
 .form-group input[type="password"]:focus,
 .form-group input[type="tel"]:focus {
   border-color: #007BFF;
-}
+} */
 
 /* Style for radio buttons */
-.form-group input[type="radio"] {
+/* .form-group input[type="radio"] {
   display: none;
 }
 
@@ -55,9 +55,9 @@
   position: relative;
   padding-left: 30px;
   cursor: pointer;
-}
+} */
 
-.form-group input[type="radio"] + label:before {
+/* .form-group input[type="radio"] + label:before {
   content: "";
   position: absolute;
   left: 0;
@@ -67,15 +67,15 @@
   border: 2px solid #007BFF;
   border-radius: 50%;
   transition: border-color 0.3s;
-}
+} */
 
-.form-group input[type="radio"]:checked + label:before {
+/* .form-group input[type="radio"]:checked + label:before {
   background: #007BFF;
   border-color: #007BFF;
 }
 
 /* Style for the submit button */
-button {
+/* button {
   background: #007BFF;
   color: #fff;
   border: none;
@@ -88,12 +88,261 @@ button {
 button:disabled {
   background: #ccc;
   cursor: not-allowed;
-}
+} */
 
-button:hover {
+/* button:hover {
   background: #0056b3;
+} */
+
+/* .form-group label{
+  font-size: x-large; margin-top: 4px; margin-right: 5px;
+} */ 
+
+
+
+
+
+
+body
+{
+	margin: 0 auto;
+	padding: 0 auto;
+	height: 100vh;
+	background: linear-gradient(45deg,#FC354C, #0ABFBC);
+	background-size: cover;
+	font-family: sans-serif;
+}
+.registration-form-container 
+{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	width: 450px;
+	height: 700px;
+	padding: 40px;
+	border-radius: 10px;
+	box-sizing: border-box;
+	background: rgba(255,255,255,.3);
+	background-position: center;
+}
+.user
+{
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	overflow: hidden;
+	position: absolute;
+	top: calc(-100px/2);
+	left: calc(70% - 35%);
+}
+h2
+{
+	margin: 0;
+	padding: 30px 0 40px;
+	color: #BE5869;
+	text-align: center;
+}
+.registration-form-container  p
+{
+	margin: 0;
+	padding: 0;
+	font-weight: bold;
+	color: #fff;
+}
+.registration-form-container input
+{
+	width: 100%;
+	margin-bottom: 20px;
+}
+/*.form-group input[type="text"],
+.registration-form-container  [type="password"] */
+ .form-group input[type="text"]
+.form-group input[type="email"]
+.form-group input[type="password"]
+.form-group input[type="tel"]
+
+{
+	border: none;
+	border-bottom: 1px solid #fff;
+	background: transparent;
+	outline: none;
+	height: 40px;
+	color: #fff;
+	font-size: 16px;
+}
+::placeholder
+{
+	color: rgba(255,255,255,.5);
+}.form-group input[type="radio"]{
+display: none;
+}
+.form-check-group input[type="checkbox"]{
+  display: flex;
 }
 
-.form-group label{
-  font-size: x-large; margin-top: 4px; margin-right: 5px;
+.form-group input[type="radio"] + label {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+}
+.form-group input[type="radio"] + label:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #007BFF;
+  border-radius: 50%;
+  transition: border-color 0.3s;
+}
+.form-group input[type="radio"]:checked + label:before {
+  background: #007BFF;
+  border-color: #007BFF;
+}
+button [type="submit"]
+{
+	border:none;
+	outline: none;
+	height: 40px;
+	color: #fff;
+	font-size: 14px;
+	background: linear-gradient(45deg,#FC354C, #0ABFBC);
+	cursor: pointer;
+	border-radius: 20px;
+}
+button  [type="submit"]:hover
+{
+	background: linear-gradient(45deg,#0ABFBC, #FC354C);
+}
+.registration-form-container  .a
+{
+	color: #fff;
+	font-size: 14px;
+	font-weight: bold;
+	text-decoration: none;
+}
+.registration-form-container  h5
+{
+	margin: 0;
+	padding: 15px 0 0 0;
+	text-align: center;
+	color: #fff;
+}
+.registration-form-container  h4
+{
+	margin: 0;
+	padding: 30px;
+	text-align: center;
+	color: #fff;
+}
+.registration-form-container  h4 a
+{
+	text-decoration: none;
+	color: #BE5869;
+}
+ul
+{
+	margin: 0;
+	padding: 0;
+	display: flex;
+}
+ul li
+{
+	list-style: none;
+	float: left;
+	top: 10px;
+	left: 65px;
+	margin: 10px;
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	background: #fff;
+	font-size: 40px;
+	border-radius: 20%;
+	position: relative;
+	transition: .5s ease-in-out;
+	z-index: 1;
+}
+/* ul li a
+{
+	font-size: 35px;
+}
+ul li .facebook
+{
+	color: #3b5999; 
+}
+
+ul li .google
+{
+	color: #dd4b39;
+} */
+
+ul li a:before
+{
+	content: '';
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-radius: 20%;
+	transform: scale(0);
+	transition: .5s ease-in-out;
+	z-index: -1;
+}
+ul li a:before
+{
+	background:linear-gradient(45deg,#FC354C, #0ABFBC); 
+}
+ul li a:hover:before
+{
+	transform: scale(.9);
+}
+ul li a:hover
+{
+	color: #fff;
+}
+.txt2:hover
+{
+	color: black;
+}
+
+@media screen and (max-width: 988px)
+{
+	.loginBox
+	{
+		width: 350px;
+		height: 560px;
+	}
+}
+@media screen and (max-width: 640px)
+{
+	.loginBox
+	{
+		width: 350px;
+		height: 560px;
+		right: 10px;
+	}
+}
+@media screen and (max-width: 320px)
+{
+	.loginBox
+	{
+		right: 10px;
+		width: 320px;
+		height: 560px;
+	}
+}
+
+.checkbox {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-row{
+  display: flex;
+  justify-content: space-between  ;
 }

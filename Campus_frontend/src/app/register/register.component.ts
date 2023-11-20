@@ -13,7 +13,10 @@ import { RoleService } from '../role.service';
 })
 export class RegisterComponent implements OnInit {
 
-
+  redirectToUserPage() {
+    this.router.navigate(['/user']);
+  }
+  
 
   user: User = new User();
   Roles:any = []
@@ -75,6 +78,8 @@ export class RegisterComponent implements OnInit {
       error: (err) => {
         console.log('error', err);
         alert(err.error)
+
+        this.router.navigate(['/user']);
      
       },
     });

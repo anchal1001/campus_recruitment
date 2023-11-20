@@ -28,6 +28,10 @@ export class CategoryService {
   getAllCategory(){
     return this.http.get(`${this.baseUrl}/getAll`)
   }
+  getCollegeByCampusId(id: number): Observable<any>{
+    return this.http.get("http://localhost:8888/api/category/getAllCollegesBy/"+id)
+
+  }
 
 }
 

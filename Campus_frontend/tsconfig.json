@@ -17,6 +17,7 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "baseUrl": "src",
+    
     "strictPropertyInitialization": false,
     "target": "ES2022",
     "module": "ES2022",

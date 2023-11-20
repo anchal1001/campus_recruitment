@@ -66,8 +66,10 @@ onSubmit() {
     },
   });
 }
-
-// }
+redirectToUserPage() {
+  this.router.navigate(['/user']);
 }
 
 
+
+}

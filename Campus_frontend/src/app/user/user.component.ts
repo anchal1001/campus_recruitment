@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { User } from 'app/user';
+import { UserService } from '../service.service';
 
 @Component({
   selector: 'app-user',
@@ -11,16 +13,24 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 
 export class UserComponent {
-redirectToAllCollege() {
-  this.router.navigate(['/college-list']);
-}
 
-
-
-
-  constructor(private formBuilder: FormBuilder, private router: Router) {
+ user1 = localStorage.getItem('user')
+ 
+ user: User = new User();
+ //  
+ // user!: User;
+ 
+ // data: Object;
+ 
+ 
+ constructor(private formBuilder: FormBuilder, private router: Router, private userService: UserService) {
+    console.log("user ",this.user1);
   
+    // this.user = this.userService.user;
   }
+
+
+
 redirectToRegister() {
   this.router.navigate(['/register']);
 }
@@ -31,14 +41,20 @@ redirectToAllCategory() {
   this.router.navigate(['/category-list']);
 }
 
+
+redirectToAllCollege() {
+  this.router.navigate(['/college-list']);
+}
+  
+// this.user.role=roleId;
+//  this.user.var roleId=Object.entries(data)[2][1].roleId;
+// name=Object.entries(data)[2][1].username;
+
+// }
+
 }
 
 
-
-
-
-
-
     // if (this.employeeForm.valid) {
-   
+ 
   

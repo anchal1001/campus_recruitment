@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CategoryService } from '../category.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-category-list',
@@ -9,8 +10,15 @@ import { CategoryService } from '../category.service';
   styleUrls: ['./category-list.component.css']
 })
 export class CategoryListComponent {
+id:number;
+resclg: any[] = [];
+
 redirectToUserPage() {
   this.router.navigate(['/user']);
+}
+
+redirectToAllCollege() {
+  this.router.navigate(['/college-list']);
 }
 
 
@@ -26,6 +34,7 @@ redirectToUserPage() {
   ngOnInit() {
     this.categoryService.getAllCategory().subscribe((data: any) => {
       this.categories = data;
+      console.log(this.categories)
     });
   }
   // getAllCategories() {
@@ -35,5 +44,17 @@ redirectToUserPage() {
   
   redirectToCategory() {
     this.router.navigate(['/category']);}
+
+    onCollegeById(id:number){
+      console.log("category Clicked",id);
+      this.categoryService.getCollegeByCampusId(id).subscribe({
+        next:(res)=>{
+          this.resclg= res;
+            console.log("RESPONSE === ,",res)
+        }
+      })
+      
+      //define your logic
+    }
 
 }

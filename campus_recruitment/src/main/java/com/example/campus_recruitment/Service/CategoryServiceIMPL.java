@@ -42,11 +42,11 @@ public class CategoryServiceIMPL  implements CategoryService {
         return categoryRepository.findAll();
     }
 
-//    @Override
-//    public List<College> getAllCollegesByCategoryId(int categoryId) {
-//        Category category = categoryRepository.findById(categoryId).orElse(null);
-//        return category.collegeDto.getCollege();
-//    }
+    @Override
+    public List<College> getAllCollegesByCategoryId(int categoryId) {
+        Category category = categoryRepository.findById(categoryId).orElse(null);
+        return category.getCollege();
+    }
 
 
 }

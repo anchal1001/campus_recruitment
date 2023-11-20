@@ -5,7 +5,7 @@ import jakarta.persistence.Column;
 public class CategoryDto {
 
 
-//    private int categoryId;
+    private int categoryId;
 
 
     private String categoryName;
@@ -16,6 +16,7 @@ public class CategoryDto {
     private double ctc;
 
 
+
     public CategoryDto(String categoryName, String categoryRole, double ctc) {
         this.categoryName = categoryName;
         this.categoryRole = categoryRole;
@@ -23,6 +24,14 @@ public class CategoryDto {
     }
 
     public CategoryDto() {
+    }
+
+    public int getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
     }
 
     public String getCategoryName() {

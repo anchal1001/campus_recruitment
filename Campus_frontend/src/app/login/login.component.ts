@@ -66,10 +66,12 @@ export class LoginComponent {
     this.userService.loginUser(this.user.email, this.user.password).subscribe({
       next: (data) => {
         console.log('data', data);
-        
-       var roleId=Object.entries(data)[2][1].roleId;
+        localStorage.setItem('user',JSON.stringify(Object.entries(data)[2][1].username))        
+       const roleId=Object.entries(data)[2][1].roleId;
        this.user.role=roleId;
+       var username;
         this.user.name=Object.entries(data)[2][1].username;
+        // this.userService.setUser({ roleId, username });
         // $scope.userName=this.user.name;
 
         console.log('data',this.user);
@@ -86,6 +88,10 @@ export class LoginComponent {
       },
       complete: () => {
         console.log('complete');
+        console.log();
+        
+        
+         this.router.navigate(['/user']);
       },
       error: (err) => {
         console.log('error', err);
@@ -95,4 +101,5 @@ export class LoginComponent {
       },
     });
   }
+ 
 }

@@ -1,0 +1,6 @@
+/* your.component.css or styles.css */
+.underline-link {
+    text-decoration: underline;
+    cursor: pointer; /* Add this to show a pointer cursor on hover for better user experience */
+  }
+  
