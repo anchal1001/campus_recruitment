@@ -7,7 +7,7 @@ import java.util.Date;
 
 @Entity
     @Table(name="user")
-    public class User {
+    public class  User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,7 +45,7 @@ import java.util.Date;
 
 
 
-    @Column(name = "email_Id")
+    @Column(name = "email_Id",unique =true)
     private String email;
     @Column(name = "password")
     private String password;

@@ -43,11 +43,19 @@ public class UserController {
 
 
     }
+    //create an api for all user and it shoul not consist of password field
     @PostMapping("/registration")
     public ResponseEntity<?>  addUser(@RequestBody UserDTO userDTO){
         System.out.println("registration callleeddd");
+        try{
 
         return  ResponseEntity.ok(userService.addUser(userDTO));
 
     }
-}
+        catch (Exception e){
+            e.printStackTrace();
+//            return ResponseEntity.badRequest().body("Somethimg Went Wrong");
+            return ResponseEntity.badRequest().body("Error: Email is already in use!");
+
+        }
+}}

@@ -26,7 +26,15 @@ export class UserService {
         email: user.email,
         password: user.password,
         name: user.name,
-        role: user.role
+        role: user.role,
+        dateOfBirth:user.dateOfBirth,
+        bloodGroup:user.bloodGroup,
+        gender:user.gender,
+        phoneNumber:user.phoneNumber,
+        alternateNumber:user.alternateNumber,
+        address:user.address,
+        permanentAddress:user.permanentAddress
+
       },
       {
         responseType: 'json',

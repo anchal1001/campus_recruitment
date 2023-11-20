@@ -3,8 +3,8 @@ export class User {
   email: string;
   password: string;
   role: {
-    role_id:number;
-  };
+    role_id: number
+  }
   dateOfBirth:Date;
   bloodGroup:String;
   gender:string;
