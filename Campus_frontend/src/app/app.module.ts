@@ -15,6 +15,8 @@ import { CategoryComponent } from './category/category.component';
 import { CollegeComponent } from './college/college.component';
 import { CollegeListComponent } from './college-list/college-list.component';
 import { CategoryListComponent } from './category-list/category-list.component';
+import { SchedulerComponent } from './scheduler/scheduler.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -29,6 +31,7 @@ import { CategoryListComponent } from './category-list/category-list.component';
     CollegeComponent,
     CollegeListComponent,
     CategoryListComponent,
+    SchedulerComponent,
 
    
   ],
@@ -39,7 +42,8 @@ import { CategoryListComponent } from './category-list/category-list.component';
     HttpClientModule,
     CommonModule,
     ToastrModule.forRoot(),
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

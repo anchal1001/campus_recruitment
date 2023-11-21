@@ -18,7 +18,7 @@ public class collegeController {
 //    private CollegeDto collegeDto;
     @GetMapping("/getAll")
     public ResponseEntity<List<College>> getAllColleges(){
-        System.out.println("Add  college callleeddd");
+        System.out.println("get  college callleeddd");
 //        System.out.println(categoryDto.getcategoryId);
 
         return  ResponseEntity.ok(collegeService.getAllColleges());

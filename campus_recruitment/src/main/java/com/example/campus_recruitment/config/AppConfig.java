@@ -70,6 +70,11 @@ public class AppConfig {
                         .requestMatchers(HttpMethod.GET,"/api/category/getAll").permitAll()
                         .requestMatchers(HttpMethod.GET,"/api/college/getAll").permitAll()
                         .requestMatchers(HttpMethod.GET,"/api/category/getAllCollegesBy/{categoryId}").permitAll()
+                        .requestMatchers(HttpMethod.GET,"/api/applicant/getAll").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/applicant/create").permitAll()
+                        .requestMatchers(HttpMethod.GET,"/api/round/getAll").permitAll()
+
+
 
 
 //                        .requestMatchers(HttpMethod.GET,"/api/roles").hasRole("admin")

@@ -26,6 +26,17 @@ public class Category {
     @OneToMany(cascade = { CascadeType.MERGE },mappedBy = "category" )
     @JsonIgnore
     private List<College> college;
+    @ManyToMany(fetch = FetchType.EAGER,cascade = { CascadeType.MERGE })
+    @JoinColumn(name = "year_id")
+    private List<RecruitedYear> recruitedyear;
+
+    public List<RecruitedYear> getRecruitedYear() {
+        return recruitedyear;
+    }
+
+    public void setRecruitedYear(List<RecruitedYear> recruitedYear) {
+        this.recruitedyear= recruitedYear;
+    }
 
     public Category() {
     }

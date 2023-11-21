@@ -2,6 +2,8 @@ package com.example.campus_recruitment.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name="college_details")
 public class College {
@@ -30,6 +32,19 @@ public class College {
     @ManyToOne(fetch = FetchType.EAGER,cascade = { CascadeType.MERGE })
     @JoinColumn(name = "category_id")
     private Category category;
+
+    @ManyToMany(fetch = FetchType.EAGER,cascade = { CascadeType.MERGE })
+    @JoinColumn(name = "year_id")
+    private List<RecruitedYear> recruitedyear;
+
+
+    public List<RecruitedYear> getRecruitedYear() {
+        return recruitedyear;
+    }
+
+    public void setRecruitedYear(List<RecruitedYear> recruitedYear) {
+        this.recruitedyear = recruitedYear;
+    }
 
     public College() {
     }
