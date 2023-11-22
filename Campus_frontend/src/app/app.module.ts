@@ -15,11 +15,19 @@ import { CategoryComponent } from './category/category.component';
 import { CollegeComponent } from './college/college.component';
 import { CollegeListComponent } from './college-list/college-list.component';
 import { CategoryListComponent } from './category-list/category-list.component';
-import { SchedulerComponent } from './scheduler/scheduler.component';
+// import { SchedulerComponent } from './scheduler/scheduler.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {DayPilotModule} from "daypilot-pro-angular";
+import { SchedulerComponent } from './scheduler/scheduler.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import interactionPlugin from '@fullcalendar/interaction';
+import daygridPlugin from '@fullcalendar/daygrid';
+import { StoreModule } from '@ngrx/store';
+import { CalendarFeature } from './reducer';
 
+// FullCalendarModule.registerPlugins([interactionPlugin,daygridPlugin
 
-
+// ])
 
 @NgModule({
   declarations: [
@@ -32,7 +40,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CollegeListComponent,
     CategoryListComponent,
     SchedulerComponent,
-
+    // SchedulerComponent,
    
   ],
   imports: [
@@ -43,7 +51,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CommonModule,
     ToastrModule.forRoot(),
     FormsModule,
-    NgbModule
+    NgbModule,
+    FullCalendarModule  
   ],
   providers: [],
   bootstrap: [AppComponent]
