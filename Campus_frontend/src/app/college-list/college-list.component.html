@@ -17,29 +17,31 @@
             <tr *ngFor="let college of colleges; let i = index">
                 <td>{{ i + 1 }}</td>
                 <td>
-                    <input type="text" [value]="college.collegeName" />
+                    {{college.collegeName}}
                 </td>
                 <td>
-                    <input type="text" [value]="college.contactPerson" />
+                  {{college.contactPerson}}
                 </td>
                 <td>
-                    <input type="email" [value]="college.email" />
+            {{college.email}}
                 </td>
                 <td>
-                    <input type="tel" [value]="college.phoneNumber" />
+               {{college.phoneNumber}}
                 </td>
                 <td>
-                    <input type="text" [value]="college.website" />
+                   {{college.website}}
                 </td>
                 <td>
-                    <input type="text" [value]="college.location" />
+                    {{college.location}}
                 </td>
                 <td>
-                    <span>{{ college.category.categoryName}}"</span>
-                </td>
+                    {{ college.category.categoryName}}
+                </td> 
+          
             </tr>
 
         </tbody>
     </table>
     <button (click)="redirectToUserPage()">HOME</button>
+    <button class="btn btn-primary" (click)="redirectToCollege()">Add College</button>
 </div>

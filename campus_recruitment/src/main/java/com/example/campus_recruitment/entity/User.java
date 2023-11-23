@@ -1,8 +1,11 @@
 package com.example.campus_recruitment.entity;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.Date;
+import java.util.List;
+
 
 
 @Entity
@@ -52,6 +55,10 @@ import java.util.Date;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "role_id")
     private Role role;
+    @ManyToMany(fetch = FetchType.EAGER,cascade = { CascadeType.MERGE })
+    @JoinColumn(name = "assessment_id")
+    private @Getter
+    @Setter List<Assessment> assessment;
 
 
     public User() {

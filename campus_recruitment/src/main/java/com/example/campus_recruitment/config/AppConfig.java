@@ -73,6 +73,10 @@ public class AppConfig {
                         .requestMatchers(HttpMethod.GET,"/api/applicant/getAll").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/applicant/create").permitAll()
                         .requestMatchers(HttpMethod.GET,"/api/round/getAll").permitAll()
+                        .requestMatchers(HttpMethod.DELETE, "/api/category/delete/{categoryId}").permitAll()
+                        .requestMatchers(HttpMethod.DELETE, "/api/college/delete/{categoryId}").permitAll()
+                        .requestMatchers(HttpMethod.PUT, "/api/category/update/{categoryId}").permitAll()
+                        .requestMatchers(HttpMethod.PUT, "/api/college/update/{collegeId}").permitAll()
 
 
 

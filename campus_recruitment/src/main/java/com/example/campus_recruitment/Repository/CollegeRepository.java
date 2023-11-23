@@ -11,4 +11,8 @@ import org.springframework.stereotype.Repository;
 @Transactional
 @Repository
 public interface CollegeRepository extends JpaRepository<College,Integer> {
+//    @Transactional
+
+
+//    void deleteCategoryById(int categoryId);
 }

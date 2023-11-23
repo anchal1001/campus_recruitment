@@ -125,6 +125,8 @@ body
 	box-sizing: border-box;
 	background: rgba(255,255,255,.3);
 	background-position: center;
+	/* max-height:400px; */
+	overflow-y: auto;
 }
 .user
 {

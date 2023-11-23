@@ -27,20 +27,20 @@ public class Assessment {
 
     @Column(name = "assessment_status")
     private @Getter @Setter String assessmentStatus;
-    @ManyToMany(cascade = { CascadeType.MERGE },mappedBy = "applicant" )
-    @JsonIgnore
-    private @Getter @Setter List<Applicant> applicant;
+    @ManyToMany(fetch = FetchType.EAGER,cascade = { CascadeType.MERGE })
+    @JoinColumn(name = "applicant_id")
+    private @Getter @Setter  List<Applicant> applicant;
 
-    @ManyToMany(cascade = { CascadeType.MERGE },mappedBy = "user" )
+    @ManyToMany(cascade = { CascadeType.MERGE },mappedBy = "assessment" )
     @JsonIgnore
-    private  @Getter @Setter List<User> user;
+    private List<User> user;
 
-    @OneToMany(cascade = { CascadeType.MERGE },mappedBy = "feedback" )
-    @JsonIgnore
-    private @Getter @Setter List<Feedback> feedback;
-    @ManyToOne(fetch = FetchType.EAGER,cascade = { CascadeType.MERGE })
-    @JoinColumn(name = "round_id")
-    private @Getter @Setter Round round;
+//    @OneToMany(cascade = { CascadeType.MERGE },mappedBy = "feedback" )
+//    @JsonIgnore
+//    private @Getter @Setter List<Feedback> feedback;
+//    @ManyToOne(fetch = FetchType.EAGER,cascade = { CascadeType.MERGE })
+//    @JoinColumn(name = "round_id")
+//    private @Getter @Setter Round round;
 
 
 

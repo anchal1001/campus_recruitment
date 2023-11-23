@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/college")
-public class collegeController {
+public class CollegeController {
     @Autowired
     private CollegeService collegeService;
 //    @Autowired
@@ -40,6 +40,28 @@ public class collegeController {
         }
 
         }
+
+    @PutMapping("/update/{collegeId}")
+    public String updateCollegeById(@PathVariable int  collegeId, @RequestBody College updatedCollege) {
+        boolean updated = collegeService.updateCollegeById( collegeId,updatedCollege);
+        if (updated) {
+            return " updated successfully";
+        } else {
+            return " not found";
+        }
+
+    }
+
+    @DeleteMapping("/delete/{collegeId}")
+    public String deleteCollegeById(@PathVariable int collegeId) {
+        boolean deleted = collegeService.deleteCollegeById(collegeId);
+        if (deleted) {
+            return " deleted successfully";
+        } else {
+            return " not found";
+        }
+    }
+
 
 //    @GetMapping("/getAll")
 //    public ResponseEntity<Object> getAllCollege() {

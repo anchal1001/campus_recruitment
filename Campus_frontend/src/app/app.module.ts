@@ -22,8 +22,8 @@ import { SchedulerComponent } from './scheduler/scheduler.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import interactionPlugin from '@fullcalendar/interaction';
 import daygridPlugin from '@fullcalendar/daygrid';
-import { StoreModule } from '@ngrx/store';
-import { CalendarFeature } from './reducer';
+// import { StoreModule } from '@ngrx/store';
+// import { CalendarFeature } from './reducer';
 
 // FullCalendarModule.registerPlugins([interactionPlugin,daygridPlugin
 

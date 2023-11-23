@@ -8,7 +8,9 @@ import com.example.campus_recruitment.entity.College;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.http.HttpStatus;
 
+import java.sql.SQLOutput;
 import java.util.List;
 
 @RestController
@@ -48,6 +50,28 @@ catch (Exception e){
         return categoryService.getAllCollegesByCategoryId(categoryId);
 
     }
+
+    @DeleteMapping("/delete/{categoryId}")
+    public String deleteCategory(@PathVariable int categoryId) {
+        boolean deleted = categoryService.deleteCategoryById(categoryId);
+        if (deleted) {
+            return "Category deleted successfully";
+        } else {
+            return "Category not found";
+        }
+    }
+    @PutMapping("/update/{categoryId}")
+    public String updateCategory(@PathVariable int  categoryId, @RequestBody Category updatedCategory) {
+        boolean updated = categoryService.updateCategory(categoryId, updatedCategory);
+        if (updated) {
+            return "Category updated successfully";
+        } else {
+            return "category not found";
+        }
+
+    }
+
+
 }
 
 

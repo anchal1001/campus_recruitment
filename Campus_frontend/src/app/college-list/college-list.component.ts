@@ -23,5 +23,7 @@ export class CollegeListComponent {
       this.colleges = data;
     });
   }
+  redirectToCollege() {
+    this.router.navigate(['/college']);}
 
 }

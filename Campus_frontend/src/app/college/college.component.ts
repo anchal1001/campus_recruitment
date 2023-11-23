@@ -61,6 +61,7 @@ onSubmit() {
     },
     error: (err) => {
       console.log('error', err);
+      this.router.navigate(['/college-list']);
 
      
     },

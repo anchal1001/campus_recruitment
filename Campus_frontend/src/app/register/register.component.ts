@@ -118,4 +118,15 @@ export class RegisterComponent implements OnInit {
  
 //         }
 //     }
+
+
+
+  // autoExpand(textarea) {
+  //   // Reset the textarea's height to its default value to get the scrollHeight
+  //   textarea.style.height = "auto";
+  //   // Set the textarea's height to its scrollHeight, adjusting for any extra padding
+  //   textarea.style.height = textarea.scrollHeight + 5 + "px";
+  // }
+
+
 }

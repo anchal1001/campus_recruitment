@@ -12,5 +12,10 @@ public interface CategoryService {
     String addCategory(CategoryDto CategoryDto);
     List<Category> getAllcategory();
     List<College> getAllCollegesByCategoryId( int collegeId);
+//   boolean deleteCollegesByCategoryId(int categoryId);
+    boolean deleteCategoryById(int CategoryId);
+
+    boolean updateCategory (int categoryId, Category updatedCategory);
+
 
 }

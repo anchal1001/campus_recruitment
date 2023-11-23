@@ -23,7 +23,7 @@ public class RecruitedYear {
     private List<College> college;
 
 
-    @OneToMany(cascade = { CascadeType.MERGE },mappedBy = "recruitedyear" )
+    @OneToMany(cascade = { CascadeType.MERGE }, mappedBy = "recruitedyear")
     @JsonIgnore
     private List<Applicant> applicant;
     @ManyToMany(cascade = { CascadeType.MERGE },mappedBy = "recruitedyear" )

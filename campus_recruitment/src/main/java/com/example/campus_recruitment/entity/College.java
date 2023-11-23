@@ -17,8 +17,6 @@ public class College {
     private String collegeName;
     @Column(name = "contact_person")
     private String contactPerson;
-
-
     @Column(name = "email_Id")
     private String email;
     @Column(name = "phone_number")

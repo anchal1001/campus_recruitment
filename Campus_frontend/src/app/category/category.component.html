@@ -14,7 +14,7 @@
   
       <div class="form-group">
         <label for="ctc">CTC</label>
-        <input type="number" id="ctc" name="ctc" [(ngModel)]="category.ctc"/>
+        <input type="number" id="ctc" name="ctc"  pattern="\d{2}" maxlength="2" [(ngModel)]="category.ctc"/>
       </div>
       <button type="submit" [disabled]="categoryForm.form.invalid">Add</button>
   </form>

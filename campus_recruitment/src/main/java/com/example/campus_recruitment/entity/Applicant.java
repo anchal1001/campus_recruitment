@@ -1,5 +1,6 @@
 package com.example.campus_recruitment.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -56,6 +57,9 @@ public class Applicant {
 
     @OneToOne(mappedBy = "applicant", cascade = CascadeType.ALL)
     private Status status;
+    @ManyToMany(cascade = { CascadeType.MERGE },mappedBy = "applicant" )
+    @JsonIgnore
+    private List<Assessment> assessment;
 
     public RecruitedYear getRecruitedYear() {
         return recruitedyear;
