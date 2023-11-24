@@ -8,6 +8,8 @@ import { CategoryComponent } from './category/category.component';
 import { CategoryListComponent } from './category-list/category-list.component';
 import { CollegeListComponent } from './college-list/college-list.component';
 import { SchedulerComponent } from './scheduler/scheduler.component';
+// import { UpdateCategoryComponent } from './update-category/update-category.component';
+// import { UpdateCollegeComponent } from './update-college/update-college.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -18,6 +20,8 @@ const routes: Routes = [
   { path: 'category-list', component: CategoryListComponent },
   { path: 'college-list', component: CollegeListComponent },
   { path: 'scheduler', component: SchedulerComponent },
+  // { path: 'update-category', component: UpdateCategoryComponent },
+  // { path: 'update-college', component: UpdateCollegeComponent }
 ];
 
 @NgModule({

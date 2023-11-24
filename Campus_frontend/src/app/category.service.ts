@@ -33,8 +33,18 @@ export class CategoryService {
 
   }
 
-}
+  editCampusById(id: number,category: any): Observable<any>{
+    const requestBody = {
+      categoryName: category.categoryName,
+      categoryRole: category.categoryRole,
+      ctc: category.ctc
+    };
+    
+      return this.http.put(`${this.baseUrl}/update/${category.categoryId}`, requestBody);
+    
 
+  }
+  deleteCategory(categoryId: number): Observable<Object>{
+    return this.http.delete(`${this.baseUrl}/delete/${categoryId}`);
 
-
-   
+  }}

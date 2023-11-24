@@ -72,8 +72,8 @@ public class Applicant {
     public Applicant() {
     }
 
-    public Applicant(int applicantId, String firstName, String lastName, String appGender, Date appDateOfBirth, String appEmail, String appPhoneNumber, Double classX, Double classXII, Double graduationCgpa, String phoneNumber, String activeBacklog, int graduationYear) {
-        ApplicantId = applicantId;
+    public Applicant( String firstName, String lastName, String appGender, Date appDateOfBirth, String appEmail, String appPhoneNumber, Double classX, Double classXII, Double graduationCgpa, String phoneNumber, String activeBacklog, int graduationYear) {
+//        ApplicantId = applicantId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.appGender = appGender;

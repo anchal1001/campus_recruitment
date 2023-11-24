@@ -23,7 +23,7 @@ public class Category {
 
     @Column(name = "Ctc")
     private double  ctc;
-    @OneToMany(cascade = { CascadeType.MERGE },mappedBy = "category" )
+    @OneToMany(cascade = { CascadeType.ALL },mappedBy = "category" )
     @JsonIgnore
     private List<College> college;
     @ManyToMany(fetch = FetchType.EAGER,cascade = { CascadeType.MERGE })

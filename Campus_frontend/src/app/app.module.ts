@@ -22,12 +22,15 @@ import { SchedulerComponent } from './scheduler/scheduler.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import interactionPlugin from '@fullcalendar/interaction';
 import daygridPlugin from '@fullcalendar/daygrid';
+// import { UpdateCategoryComponent } from './update-category/update-category.component';
+// import { UpdateCollegeComponent } from './update-college/update-college.component';
 // import { StoreModule } from '@ngrx/store';
 // import { CalendarFeature } from './reducer';
 
 // FullCalendarModule.registerPlugins([interactionPlugin,daygridPlugin
 
-// ])
+
+
 
 @NgModule({
   declarations: [
@@ -40,6 +43,8 @@ import daygridPlugin from '@fullcalendar/daygrid';
     CollegeListComponent,
     CategoryListComponent,
     SchedulerComponent,
+    // UpdateCategoryComponent,
+    // UpdateCollegeComponent,
     // SchedulerComponent,
    
   ],
@@ -47,6 +52,7 @@ import daygridPlugin from '@fullcalendar/daygrid';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+   
     HttpClientModule,
     CommonModule,
     ToastrModule.forRoot(),

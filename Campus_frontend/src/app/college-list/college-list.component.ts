@@ -9,6 +9,33 @@ import { Router } from '@angular/router';
   styleUrls: ['./college-list.component.css']
 })
 export class CollegeListComponent {
+
+college = {
+  collegeName: '',
+
+  contactPerson: '',
+  email : '',
+  phoneNumber: '',
+  website: '',
+  location: '',
+  
+   category: {
+       categoryId:'',
+   }
+};
+categories: any;
+updateCollege() {
+throw new Error('Method not implemented.');
+}
+onUpdateClick(_t18: any) {
+throw new Error('Method not implemented.');
+}
+editCollege(arg0: any) {
+throw new Error('Method not implemented.');
+}
+deleteCollege(arg0: any) {
+throw new Error('Method not implemented.');
+}
   redirectToUserPage() {
     this.router.navigate(['/user']);
   }

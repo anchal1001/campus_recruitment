@@ -15,7 +15,7 @@
       </div>
       <div class="form-group">
         <label for="contactNumber">Contact Number</label>
-        <input type="number" id="contactNumber" name="contactNumber" [(ngModel)]="college.phoneNumber" />
+        <input type="number" id="contactNumber" name="contactNumber"   pattern="[1-9][0-9]{9}" [(ngModel)]="college.phoneNumber" />
       </div>
       <div class="form-group">
         <label for="website">Website</label>
