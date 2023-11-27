@@ -1,4 +1,5 @@
 export class College {
+  collegeId:number;
        
   collegeName: String;
 

@@ -34,7 +34,7 @@ constructor(
   // }
   ngOnInit() {
    this.getCategoryApi()
-   this.college.category={categoryId:0}
+  this.college.category={categoryId:0}
   }
 
   getAllCategories(){}
@@ -57,11 +57,12 @@ onSubmit() {
     },
     complete: () => {
       console.log('complete');
-      this.router.navigate(['/user']);
+      this.router.navigate(['/college-list']);
+
     },
     error: (err) => {
       console.log('error', err);
-      this.router.navigate(['/college-list']);
+      // this.router.navigate(['/college-list']);
 
      
     },

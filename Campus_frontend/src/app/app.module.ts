@@ -22,6 +22,9 @@ import { SchedulerComponent } from './scheduler/scheduler.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import interactionPlugin from '@fullcalendar/interaction';
 import daygridPlugin from '@fullcalendar/daygrid';
+import { HeaderComponent } from './user/header/header.component';
+import { SideNavComponent } from './user/side-nav/side-nav.component';
+import { MainComponent } from './user/main/main.component';
 // import { UpdateCategoryComponent } from './update-category/update-category.component';
 // import { UpdateCollegeComponent } from './update-college/update-college.component';
 // import { StoreModule } from '@ngrx/store';
@@ -43,6 +46,9 @@ import daygridPlugin from '@fullcalendar/daygrid';
     CollegeListComponent,
     CategoryListComponent,
     SchedulerComponent,
+    HeaderComponent,
+    SideNavComponent,
+    MainComponent,
     // UpdateCategoryComponent,
     // UpdateCollegeComponent,
     // SchedulerComponent,

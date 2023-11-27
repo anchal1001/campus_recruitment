@@ -12,16 +12,21 @@ import { category } from 'app/Category';
 })
 export class CategoryListComponent {
 
-  category = {
+categories: any=[]
+
+
+  category: category = {
     categoryName: '',
     categoryRole: '',
-    ctc: '',
+    ctc: 0,
+    categoryId: 0
   };
 
-  categoryToUpdate = {
+  categoryToUpdate: category = {
     categoryName: '',
     categoryRole: '',
-    categoryCtc: '',
+    ctc: 0,
+    categoryId:0
   };
 
   id: number;
@@ -35,7 +40,7 @@ export class CategoryListComponent {
     this.router.navigate(['/college-list']);
   }
 
-  categories: any[] = [];
+  // categories: category[] = [];
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -43,6 +48,7 @@ export class CategoryListComponent {
   ) {}
 
   ngOnInit() {
+    
     // this.id = this.category.categoryId;
     this.categoryService.getAllCategory().subscribe((data: any) => {
       console.log('hi', data);
@@ -54,7 +60,7 @@ export class CategoryListComponent {
   //   // Replace 'your_api_endpoint/categories' with the actual API endpoint for fetching category data
   //   return this.http.get('your_api_endpoint/categories');
   // }
-  onUpdateClick(category:any){
+  onUpdateClick(category:category){
     this.redirectToAllCategory();
     this.category = category
   }
@@ -116,6 +122,11 @@ export class CategoryListComponent {
     this.categoryService.deleteCategory(categoryId).subscribe( data => {
       console.log(data);
       // this.getAllCategory();
+      window.location.reload();
+      console.log('hello');
+      
     })
   }
+
+
 }

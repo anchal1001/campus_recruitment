@@ -27,7 +27,7 @@ public class College {
     private String location;
 
 
-    @ManyToOne(fetch = FetchType.EAGER,cascade = { CascadeType.MERGE })
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id")
     private Category category;
 

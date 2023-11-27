@@ -52,21 +52,22 @@ catch (Exception e){
     }
 
     @DeleteMapping("/delete/{categoryId}")
-    public String deleteCategory(@PathVariable int categoryId) {
+    public ResponseEntity<?> deleteCategory(@PathVariable int categoryId) {
         boolean deleted = categoryService.deleteCategoryById(categoryId);
         if (deleted) {
-            return "Category deleted successfully";
+            return ResponseEntity.ok().build();
         } else {
-            return "Category not found";
+            return ResponseEntity.badRequest().build();
         }
     }
     @PutMapping("/update/{categoryId}")
-    public String updateCategory(@PathVariable int  categoryId, @RequestBody Category updatedCategory) {
+    public ResponseEntity<?>  updateCategory(@PathVariable int  categoryId, @RequestBody Category updatedCategory) {
         boolean updated = categoryService.updateCategory(categoryId, updatedCategory);
         if (updated) {
-            return "Category updated successfully";
+//            return "Category updated successfully";
+            return ResponseEntity.ok().build();
         } else {
-            return "category not found";
+            return ResponseEntity.badRequest().build();
         }
 
     }

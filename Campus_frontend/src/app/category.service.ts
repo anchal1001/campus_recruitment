@@ -33,13 +33,13 @@ export class CategoryService {
 
   }
 
-  editCampusById(id: number,category: any): Observable<any>{
+  editCampusById(id: number,category: category): Observable<any>{
     const requestBody = {
       categoryName: category.categoryName,
       categoryRole: category.categoryRole,
       ctc: category.ctc
     };
-    
+    console.log("edit wali "+id);
       return this.http.put(`${this.baseUrl}/update/${category.categoryId}`, requestBody);
     
 

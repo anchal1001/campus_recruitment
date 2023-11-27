@@ -53,12 +53,12 @@ public class CollegeController {
     }
 
     @DeleteMapping("/delete/{collegeId}")
-    public String deleteCollegeById(@PathVariable int collegeId) {
+    public ResponseEntity<?> deleteCollegeById(@PathVariable int collegeId) {
         boolean deleted = collegeService.deleteCollegeById(collegeId);
         if (deleted) {
-            return " deleted successfully";
+            return ResponseEntity.ok().build();
         } else {
-            return " not found";
+            return ResponseEntity.badRequest().build();
         }
     }
 
