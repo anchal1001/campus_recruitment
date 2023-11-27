@@ -61,7 +61,7 @@ categories: any=[]
   //   return this.http.get('your_api_endpoint/categories');
   // }
   onUpdateClick(category:category){
-    this.redirectToAllCategory();
+    // this.redirectToAllCategory();
     this.category = category
   }
   redirectToCategory() {
