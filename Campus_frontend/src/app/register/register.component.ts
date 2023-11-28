@@ -20,7 +20,8 @@ export class RegisterComponent implements OnInit {
 
   user: User = new User();
   Roles:any = []
-  areRolesAdded = false
+  areRolesAdded = false;
+  date: Date | undefined;
 
   
   ngOnInit(){

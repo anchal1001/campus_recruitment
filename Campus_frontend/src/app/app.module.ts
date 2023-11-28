@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ToastrModule } from 'ngx-toastr';
+import { CalendarModule } from 'primeng/calendar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +26,7 @@ import daygridPlugin from '@fullcalendar/daygrid';
 import { HeaderComponent } from './user/header/header.component';
 import { SideNavComponent } from './user/side-nav/side-nav.component';
 import { MainComponent } from './user/main/main.component';
+import{NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
 // import { UpdateCategoryComponent } from './update-category/update-category.component';
 // import { UpdateCollegeComponent } from './update-college/update-college.component';
 // import { StoreModule } from '@ngrx/store';
@@ -64,7 +66,9 @@ import { MainComponent } from './user/main/main.component';
     ToastrModule.forRoot(),
     FormsModule,
     NgbModule,
-    FullCalendarModule  
+    FullCalendarModule ,
+    CalendarModule,
+    NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

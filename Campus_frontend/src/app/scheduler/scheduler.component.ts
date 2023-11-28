@@ -24,17 +24,30 @@ import { HttpClient } from '@angular/common/http';
 import { CollegeService } from 'app/college.service';
 import { CategoryService } from 'app/category.service';
 import { Router } from '@angular/router';
+import { CalendarModule } from 'primeng/calendar';
+import { IDropdownSettings, } from 'ng-multiselect-dropdown';
 
 @Component({
   selector: 'app-scheduler',
   templateUrl: './scheduler.component.html',
   styleUrls: ['./scheduler.component.css'],
 })
+
 export class SchedulerComponent {
+selectedCategory: any;
+selectedCollege: any;
+onGenerateRoundSubmit(scheduleForm: any):void {
+  this.selectedCategory = scheduleForm.value.category;
+  this.selectedCollege = scheduleForm.value.college;
+  console.log("scheduleForm value:",scheduleForm);
+  
+  // this.selectedCategory = scheduleForm.value.category;
+
+}
   // scheduleEvent() {
   // throw new Error('Method not implemented.');
   // }
-
+  id: number;
   @ViewChild('modalFakeBtn') modalBtn: ElementRef;
   categories: any = [];
 
@@ -43,6 +56,7 @@ export class SchedulerComponent {
   // college: College =new College()
   areCategoryAdded: false;
   category: any;
+  resclg: any[] = [];
 
   ngOnInit() {
     this.getCategoryApi();
@@ -129,6 +143,15 @@ export class SchedulerComponent {
   //     }
 
   //   }
+  onCollegeById(id: number) {
+    console.log('category Clicked', id);
+    this.categoryService.getCollegeByCampusId(id).subscribe({
+      next: (res) => {
+        this.resclg = res;
+        console.log('RESPONSE === ,', res);
+      },
+    });
+  }
 
   // new one..
   handleDateSelect(selectInfo: DateSelectArg) {

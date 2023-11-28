@@ -89,7 +89,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Update Category</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Schedule Drive</h5>
           <button
             type="button"
             class="close"
@@ -100,29 +100,85 @@
           </button>
         </div>
         <div class="modal-body">
-          <form #scheduleForm="ngForm">
+          <form #scheduleForm="ngForm" (ngSubmit)="onGenerateRoundSubmit(scheduleForm)">
             <div class="form-group">
               <label for="category">Category</label>
-              <select id="category" name="category">
+              <select id="category" name="category" ngModel (ngModelChange)="onCollegeById(scheduleForm.value.category)">
+                
                 <option
                   *ngFor="let category of categories"
                   [value]="category.categoryId"
                 >
                   {{ category.categoryName }}
                 </option>
+            
               </select>
             </div>
+            <div class="form-group">
+              <label for="college">College</label>
+              <select id="college" name="college">
+                
+                <!-- <option
+                  *ngFor="let college of resclg"  
+                 
+                >
+                  {{ college.collegeName }}
+                </option> -->
+                <ng-multiselect-dropdown
+             
+                [data]="resclg">
+            </ng-multiselect-dropdown>
+              </select>
 
+              <ng-multiselect-dropdown
+             
+              [data]="resclg">
+          </ng-multiselect-dropdown>
+              </div>
             <div class="form-group">
               <input
                 type="submit"
-                value="Update"
+                value="Generate Round"
                 class="btn btn-primary w-100"
+                data-bs-toggle="modal"
+                data-bs-target="#generateModal" 
               />
             </div>
           </form>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<div class="modal fade" id="generateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" #exampleModal>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Generate Assessment</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form #generateForm="ngForm" >
+        <div class="form-group">
+          <label for="category">Category :</label>
+          <input type="text" name="category" class="form-control" [(ngModel)]="selectedCategory" />
+        </div>
+        <div class="form-group">
+          <label for="college">College</label>
+          <input type="text" name="college" class="form-control" [(ngModel)]="selectedCollege" />
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Generate"   class="btn btn-primary w-100" />
+        </div>
+      </form>
     </div>
   </div>
 </div>
