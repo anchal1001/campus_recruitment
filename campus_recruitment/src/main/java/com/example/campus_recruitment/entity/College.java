@@ -31,8 +31,14 @@ public class College {
     @JoinColumn(name = "category_id")
     private Category category;
 
-    @ManyToMany(fetch = FetchType.EAGER,cascade = { CascadeType.MERGE })
-    @JoinColumn(name = "year_id")
+//    @ManyToMany(fetch = FetchType.EAGER,cascade = { CascadeType.MERGE })
+    @ManyToMany(mappedBy = "college")
+//    @JoinColumn(name = "year_id")
+
+//    @ManyToMany(fetch = FetchType.LAZY)
+//    @JoinTable(name="college_details_recruitedyear",
+//            joinColumns = @JoinColumn(name="college_id"),
+//            inverseJoinColumns = @JoinColumn(name="year_id"))
     private List<RecruitedYear> recruitedyear;
 
 

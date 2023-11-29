@@ -10,6 +10,7 @@ import java.util.List;
 public class RecruitedYear {
 
     @Id
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "year_id")
     private int yearId;
@@ -18,15 +19,21 @@ public class RecruitedYear {
     @Column(name = "academic_year")
     private Year academicYear;
 
-    @ManyToMany(cascade = { CascadeType.MERGE },mappedBy = "recruitedyear" )
+    @ManyToMany
+    @JoinTable(name="college_details_recruitedyear",
+            joinColumns = @JoinColumn(name="year_id"),
+            inverseJoinColumns = @JoinColumn(name="college_id"))
     @JsonIgnore
     private List<College> college;
 
 
-    @OneToMany(cascade = { CascadeType.MERGE }, mappedBy = "recruitedyear")
+    @OneToMany(cascade = { CascadeType.ALL}, mappedBy = "recruitedyear")
     @JsonIgnore
     private List<Applicant> applicant;
-    @ManyToMany(cascade = { CascadeType.MERGE },mappedBy = "recruitedyear" )
+    @ManyToMany
+    @JoinTable(name="category_recruitedyear",
+            joinColumns = @JoinColumn(name="year_id"),
+            inverseJoinColumns = @JoinColumn(name="category_id"))
     @JsonIgnore
     private List<Category> category;
 

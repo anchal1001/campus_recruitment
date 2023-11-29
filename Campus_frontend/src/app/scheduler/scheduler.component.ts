@@ -2,7 +2,14 @@
 // import dayGridPlugin from '@fullcalendar/daygrid';
 // import { CalendarOptions,DateSelectArg,EventInput  } from '@fullcalendar/core';
 
-import { ChangeDetectorRef, Component, signal, ViewChild, ElementRef, Renderer2 } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  signal,
+  ViewChild,
+  ElementRef,
+  Renderer2,
+} from '@angular/core';
 // import { Store } from '@ngrx/store';
 import {
   CalendarOptions,
@@ -13,6 +20,7 @@ import {
 } from '@fullcalendar/core';
 import interactionPlugin from '@fullcalendar/interaction';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 // import timeGridPlugin from '@fullcalendar/timegrid';
 // import listPlugin from '@fullcalendar/list';
@@ -25,29 +33,35 @@ import { CollegeService } from 'app/college.service';
 import { CategoryService } from 'app/category.service';
 import { Router } from '@angular/router';
 import { CalendarModule } from 'primeng/calendar';
-import { IDropdownSettings, } from 'ng-multiselect-dropdown';
+import { IDropdownSettings } from 'ng-multiselect-dropdown';
+import { RoundOffsets } from '@popperjs/core/lib/modifiers/computeStyles';
+import { RoundService } from 'app/round.service';
+import { RecruitedYear } from 'RecruitedYear';
+import { SchedulerService } from 'app/scheduler.service';
 
 @Component({
   selector: 'app-scheduler',
   templateUrl: './scheduler.component.html',
   styleUrls: ['./scheduler.component.css'],
 })
-
 export class SchedulerComponent {
-selectedCategory: any;
-selectedCollege: any;
-onGenerateRoundSubmit(scheduleForm: any):void {
-  this.selectedCategory = scheduleForm.value.category;
-  this.selectedCollege = scheduleForm.value.college;
-  console.log("scheduleForm value:",scheduleForm);
-  
-  // this.selectedCategory = scheduleForm.value.category;
+  selectedCategory: any;
+  selectedCollege: string[] = [];
+  round: any;
+  recruitedyear: RecruitedYear = new RecruitedYear();
 
-}
+  onGenerateRoundSubmit(scheduleForm: any): void {
+    this.selectedCategory = scheduleForm.value.category;
+    this.selectedCollege = scheduleForm.value.college;
+    console.log('scheduleForm value:', scheduleForm);
+
+    // this.selectedCategory = scheduleForm.value.category;
+  }
   // scheduleEvent() {
   // throw new Error('Method not implemented.');
   // }
   id: number;
+  rounds: any = [];
   @ViewChild('modalFakeBtn') modalBtn: ElementRef;
   categories: any = [];
 
@@ -57,10 +71,43 @@ onGenerateRoundSubmit(scheduleForm: any):void {
   areCategoryAdded: false;
   category: any;
   resclg: any[] = [];
+  form1: FormGroup;
+  form2: FormGroup;
 
   ngOnInit() {
     this.getCategoryApi();
-    //  this.college.category={categoryId:0}
+    this.getRound();
+    //  category={categoryId:0}
+    // this.recruitedyear.category={categoryId:0}
+    // this.recruitedyear.college={collegeId:0}
+
+    this.form1 = this.fb.group({
+      categoryId: [null, Validators.required], // Example control, adjust based on your form structure
+    });
+
+    // Initialize form2
+
+    // Initialize form2
+    this.form2 = this.fb.group({
+      collegeId: [null, Validators.required], // Example control, adjust based on your form structure
+    });
+
+    this.recruitedyear = {
+      academicYear: 0,
+      category: { categoryId: this.form1.get('categoryId').value },
+      YearId: 0,
+      college: { collegeId: this.form2.get('collegeId').value },
+    };
+  }
+
+  getRound() {
+    this.roundService.getAllRound().subscribe({
+      next: (data) => {
+        console.log(data);
+
+        this.rounds = data;
+      },
+    });
   }
 
   getAllCategories() {}
@@ -109,6 +156,9 @@ onGenerateRoundSubmit(scheduleForm: any):void {
     private router: Router,
     private collegeService: CollegeService,
     private categoryService: CategoryService,
+    private roundService: RoundService,
+    private schedulerService: SchedulerService,
+    private fb: FormBuilder
   ) {}
 
   handleCalendarToggle() {
@@ -121,7 +171,7 @@ onGenerateRoundSubmit(scheduleForm: any):void {
     });
   }
 
-  // previous one..kinda workng..
+   
   //   handleDateSelect(selectInfo: DateSelectArg) {
   //     const title = prompt('Please enter a new title for your event');
   //     // const title = console.log("hey");
@@ -148,7 +198,7 @@ onGenerateRoundSubmit(scheduleForm: any):void {
     this.categoryService.getCollegeByCampusId(id).subscribe({
       next: (res) => {
         this.resclg = res;
-        console.log('RESPONSE === ,', res);
+        console.log('all colleges of this id === ,', res);
       },
     });
   }
@@ -156,7 +206,12 @@ onGenerateRoundSubmit(scheduleForm: any):void {
   // new one..
   handleDateSelect(selectInfo: DateSelectArg) {
     console.log('here...');
-    this.modalBtn.nativeElement.click()
+    this.modalBtn.nativeElement.click();
+    console.log(selectInfo.start.getFullYear());
+    if(onsubmit()==true)
+
+    const drive;
+    if(drive)
   }
 
   handleEventClick(clickInfo: EventClickArg) {
@@ -172,6 +227,18 @@ onGenerateRoundSubmit(scheduleForm: any):void {
   handleEvents(events: EventApi[]) {
     this.currentEvents.set(events);
     this.changeDetector.detectChanges(); // workaround for pressionChangedAfterItHasBeenCheckedError
+  }
+
+  onSubmit() {
+    console.log('submitted');
+    this.schedulerService.ScheduleDrive(this.recruitedyear).subscribe({
+      next: (data) => {},
+
+      error: (err) => {
+        console.log('error', err);
+        // this.router.navigate(['/college-list']);
+      },
+    });
   }
 }
 

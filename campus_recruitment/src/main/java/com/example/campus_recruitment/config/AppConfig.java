@@ -77,6 +77,7 @@ public class AppConfig {
                         .requestMatchers(HttpMethod.DELETE, "/api/college/delete/{categoryId}").permitAll()
                         .requestMatchers(HttpMethod.PUT, "/api/category/update/{categoryId}").permitAll()
                         .requestMatchers(HttpMethod.PUT, "/api/college/update/{collegeId}").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/recruitedyear/create").permitAll()
 
 
 

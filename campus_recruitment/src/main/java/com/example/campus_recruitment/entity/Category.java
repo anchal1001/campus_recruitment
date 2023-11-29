@@ -26,8 +26,16 @@ public class Category {
     @OneToMany(cascade = { CascadeType.ALL },mappedBy = "category" )
     @JsonIgnore
     private List<College> college;
-    @ManyToMany(fetch = FetchType.EAGER,cascade = { CascadeType.MERGE })
-    @JoinColumn(name = "year_id")
+
+
+//    @ManyToMany(fetch = FetchType.LAZY)
+//    @JoinTable(name="category_recruitedyear",
+//            joinColumns = @JoinColumn(name="category_id"),
+//            inverseJoinColumns = @JoinColumn(name="year_id"))
+//
+
+    @ManyToMany
+    (mappedBy = "category",cascade = {CascadeType.ALL})
     private List<RecruitedYear> recruitedyear;
 
     public List<RecruitedYear> getRecruitedYear() {
